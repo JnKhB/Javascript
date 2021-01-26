@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SET game</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap 
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<script type="text/javascript" src="index.js"></script>-->
+    </head>
+    <style>
+        input {
+            display: block;
+        }
+        .selected {
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .selectedCard{
+            border : thick solid #0000FF;
+        }
+        .showSet{
+            border : thick solid black;
+        }
+        body {
+            background-color: whitesmoke;
+        }
+        #settingsView{
+            font-size: 20px;
+        }
+        /*table td {
+        border: 1px solid black;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        vertical-align: middle;
+        */
+      }
+    </style>
+	<body>
+        <div id="settingsView">
+            <p>A játék neve: SET</p>
+            <a href="https://fejlesztojatekvilag.hu/uploaded/set_magyar_szabaly.pdf">A játék szabályzata ezen a linken érhető el</a>
+            <p>Kérjük adja meg a játékosok számát:</p> 
+            <input type="number" id="numberOfPlayers" min="1" max="10" value="1">
+            <button id="numberOfPlayersBtn">Játékosszám rögzítése</button>
+            <div id="addPlayersName" hidden>  
+                
+            </div>
+            
+            <button id="nameOfPlayersBtn" hidden>Játékosok neveinek rögzítése</button>
+            <div id="playersName" hidden>
+                <p>Játékosok listája:</p>
+                <ol id="nameListed">
+
+                </ol>    
+            </div>
+            
+            <div id="gameModes" >
+                <select id="gameMode">
+                    <option value="">Kérem, válasszon...</option>
+                    <option value="gyakorlo">Gyakorló</option>
+                    <option value="verseny">Verseny</option>
+                </select>
+            </div>
+            
+            <button id="gameModeBtn">Játékmód rögzítése</button>
+            <div id="moreSetting" hidden>
+                <p>Legyen-e olyan gomb az oldalon, amelyre kattintva a gép megmondja, van-e SET a leosztásban? </p>
+                    <input type="radio" name="isSet" id="yes_isSet" >
+                    <label for="yes">Igen</label><br>
+                    <input type="radio" name="isSet" id="no_isSet" checked>
+                    <label for="no">Nem</label><br>
+                <p>Legyen-e olyan gomb, amelyre kattintva a gép mutat egy SET-et?</p>
+                    <input type="radio" name="showSet" id="yes_showSet">Igen</input>
+                    <input type="radio" name="showSet" id="no_showSet" checked>Nem</input>
+                <p>A plusz 3 lapos kiegészítés automatikusan vagy külön gombra menjen?</p>
+                    <input type="radio" name="auto" id="auto" checked>Automatikusan</input>
+                    <input type="radio" name="auto" id="notAuto">Külön gombra</input>
+            </div>
+
+            
+            <button id="startBtn">START</button>
+        </div>
+        
+        <div id="gameView" hidden>
+            <div id="practiseMode" hidden>
+                <div id="isSet" hidden>
+                    <p>Van-e set a leosztásban?</p>
+                    <button id="isSetBtn">Mutasd</button>
+                </div>
+                <div id="showSet" hidden>
+                    <p>Mutass egy set-et</p>
+                    <button id="showSetBtn">Mutasd</button>
+                </div>
+                <div id="addThreeCards" hidden>
+                    <p>Plussz 3 lapos kiegészítés!</p>
+                    <button id="addThreeCardsBtn">Mehet</button>
+                </div>
+            </div>
+            <div>
+                <div id="listOfNames">
+                    <ul id="lista">
+
+                    </ul>  
+                    <ol id="result" hidden>
+
+                    </ol> 
+                </div>
+                <div>
+                    <div id="countdown"></div>
+                </div>
+                <div>
+                    <div id="stopper" hidden>
+                        <h1><time>00:00:00</time></h1>
+                    </div>
+                </div>
+                <table align="center" id="gameField" style="cursor: pointer;"> 
+                
+                </table>
+            </div>
+
+
+
+
+        </div>
+
+
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+    </html>
